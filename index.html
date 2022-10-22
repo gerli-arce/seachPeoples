@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <title>People Consulting</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="position-absolute top-50 start-0 translate-middle-y col-md-12">
+                <div class="row p-2" style="margin-left: 30px;" >
+                    <div class="card p-2 col-md-4">
+                        <div>
+                            <img src="./images/sode.svg" class="card-img-top d-inline" alt="Logo SoDe"
+                                style="max-width: 80px; align-items: center;">
+                            <p class="d-inline p-2" style="font-size: 25px;">By SoDe World</p>
+        
+                        </div>
+                        <div class="card-body">
+                            <form id="form_serarch">
+                                <h5 class="card-title">People Consulting</h5>
+                                <label for="doc_type" class="form-label">Seleccione tipo documento</label>
+                                <select id="doc_type" class="form-control">
+                                    <option selected value="dni">DNI</option>
+                                    <option value="ruc">RUC</option>
+                                </select>
+                                <label for="doc_number" class="form-label">Ingrese número de documento</label>
+                                <input id="doc_number" maxlength="8" onkeyup="this.value=Numeros(this.value)" type="text"
+                                    class="form-control">
+                                <button class="btn btn-primary form-control mt-3" type="submit">Consultar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="modal-data-load-dni" class="card  col-md-6" style="margin-left: 10px;">
+                        
+                        <p class="text-center mt-2" style="font-weight:bold" id="title_show_data"></p>
+
+                        <div class="card-body">
+                            <div class="container-items">
+                                <div>
+                                    <p class="d-inline">Nombre: </p>
+                                    <p id="nombres-dni" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p  class="d-inline">Apellido Paterno: </p>
+                                    <p id="ape-pater" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Apellido Materno: </p>
+                                    <p id="ape-mater" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">DNI: </p>
+                                    <p id="dni" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Tipo Documento: </p>
+                                    <p id="tipo-doc" class="d-inline"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                            <button id="clear" class="btn btn-success mt-1">Limpiar</button>
+                          <button id="clear-close" class="btn btn-danger">Limpiar y cerrar</button>
+                        </div>
+                    </div>
+                    <div id="modal-data-load-ruc" class="card  col-md-6" style="margin-left: 10px;">
+                        
+                        <p class="text-center mt-2" style="font-weight:bold" id="title_show_data1"></p>
+
+                        <div class="card-body">
+                            <div class="container-items">
+                                <div>
+                                    <p class="d-inline">Nombre: </p>
+                                    <p id="nombres-ruc" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p  class="d-inline">Condición: </p>
+                                    <p id="condicion" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Nombre de la via: </p>
+                                    <p id="viaNombre" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Número: </p>
+                                    <p id="numero" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Provincia: </p>
+                                    <p id="provincia" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Distrito: </p>
+                                    <p id="distrito" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Departamento: </p>
+                                    <p id="depto" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Dirección: </p>
+                                    <p id="dir" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Ubigeo: </p>
+                                    <p id="ubigeo" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Estado: </p>
+                                    <p id="estado" class="d-inline"></p>
+                                </div>
+                                <div>
+                                    <p class="d-inline">Tipo documento: </p>
+                                    <p id="documento" class="d-inline"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                            <button id="clear" class="btn btn-success mt-1">Limpiar</button>
+                          <button id="clear-close" class="btn btn-danger">Limpiar y cerrar</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <!-- <div id="modal-data-load" class="position-absolute top-50 start-50 translate-middle">
+
+        </div> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+            crossorigin="anonymous"></script>
+        <script src="./main.js"></script>
+</body>
+
+</html>
